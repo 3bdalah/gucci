@@ -11,7 +11,10 @@ export default function ProdcutProvider({children}){
     
 
     useEffect(()=>{
-        Axios.get(`${url}/products/`).then(storeProducts => console.log(storeProducts));
+        Axios.get(`${url}/products`).then(response => {
+            setProducts(response.data);
+        });
+        return () => {};
     })
     
     return (
