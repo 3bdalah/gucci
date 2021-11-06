@@ -1,5 +1,7 @@
 // products context
-import React,{useState,useContext,createContext} from 'react'
+import Axios from 'axios';
+import React,{useEffect,useState,useContext,createContext} from 'react'
+import url from "../utils/URL";
 export const ProductContext = createContext();
 
 export default function ProdcutProvider({children}){
@@ -7,6 +9,10 @@ export default function ProdcutProvider({children}){
     const [products,setProducts] = useState(false);
     const [featured,setFeatured] = useState([]);
     
+
+    useEffect(()=>{
+        Axios.get(`${url}/products/`).then(storeProducts => console.log(storeProducts));
+    })
     
     return (
         <ProductContext.Provider value={{products,loading, featured}} >
