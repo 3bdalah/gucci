@@ -13,9 +13,10 @@ export default function ProdcutProvider({children}){
     useEffect(()=>{
         Axios.get(`${url}/products`).then(response => {
             setProducts(response.data);
+            setLoading(false);
         });
         return () => {};
-    })
+    },[]);
     
     return (
         <ProductContext.Provider value={{products,loading, featured}} >
