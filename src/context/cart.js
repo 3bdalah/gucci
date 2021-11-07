@@ -24,8 +24,10 @@ const CartContext = createContext();
 
      // remove item
      const removeItem = id => {
+         let newCart = [...cart].filter(item => item.id !== id);
+       setCart(newCart);
+     };
 
-     }
     //  increacs amount 
     const increaseAmount = id => {};
     
