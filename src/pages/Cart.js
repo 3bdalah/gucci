@@ -5,7 +5,7 @@ import CartItem from "../components/Cart/CartItem";
 import {Link} from "react-router-dom";
 
 export default function Cart() {
-  let user = true;
+  let user = false;
    const {cart,total} = useContext(CartContext);
    console.log('cart' , cart);
    if(cart.length === 0){ 
