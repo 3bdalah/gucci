@@ -6,8 +6,6 @@ const CartContext = createContext();
      const [cart, setCart] = useState(localCart);
      const [total,setTotal] = useState(0);
      const [cartItems,setCartItems] = useState(0);
-
-   
      useEffect(()=>{
          let newCartItems = cart.reduce((total,cartItem)=>{
              console.log({total,cartItem});
