@@ -1,12 +1,17 @@
 // cart context
 import React,{createContext, useState, useEffect} from "react";
-import localCart from "../utils/localCart";
+// import localCart from "../utils/localCart";
+function getCartFromLocalStorage(){
+    return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem("cart")) : [];
+}
 const CartContext = createContext();
  function CartProvider({children}){
-     const [cart, setCart] = useState([]);
+     const [cart, setCart] = useState(getCartFromLocalStorage() );
      const [total,setTotal] = useState(0);
      const [cartItems,setCartItems] = useState(0);
+
      useEffect(()=>{
+         localStorage.setItem("cart",JSON.stringify(cart));
          let newCartItems = cart.reduce((total,cartItem)=>{
              console.log({total,cartItem});
              return (total += cartItem.amount);
@@ -14,7 +19,7 @@ const CartContext = createContext();
         setCartItems(newCartItems);
         let newTotal = cart.reduce((total,cartItem) => {
             return total += (cartItem.amount*cartItem.price);
-        },0);
+        },0);   
         newTotal = parseFloat(newTotal.toFixed(2));
         setTotal(newTotal);
      },[cart]);
