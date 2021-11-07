@@ -8,6 +8,5 @@ export default function Product({image,title,id,price}) {
      <Link to={`products/${id}`} className="btn btn-primary product-link">details</Link>
     </div>
   </article>
-  return <h1>hello from product</h1>;
 
 }
