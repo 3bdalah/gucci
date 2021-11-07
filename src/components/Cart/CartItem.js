@@ -1,5 +1,6 @@
 import React from "react";
-
-export default function CartItem() {
+import {FaAngleUp,FaAngleDown} from "react-icons/fa";
+import {CartContext} from "../../context/cart";
+export default function CartItem({id,image,title,price,amount}) {
   return <h1>hello form cart item</h1>;
 }
