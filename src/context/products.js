@@ -9,7 +9,6 @@ export default function ProdcutProvider({children}){
     const [loading,setLoading] = useState(false);
     const [products,setProducts] = useState([]);
     const [featured,setFeatured] = useState([]);
-    
 
     useEffect(()=>{
         Axios.get(`${url}/products`).then(response => {
